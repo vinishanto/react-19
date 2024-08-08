@@ -1,12 +1,15 @@
+import UserList from "./UserList";
+// Import new line
 import AddUser from "./AddUser";
-import UserList from "./Users";
+import "./App.css"
 
 export default async function ServerPage() {
   return (
     <div className="app">
       <header className="App-header">
-        <UserList />
-        <AddUser  />
+        <UserList  />
+        {/* insert Add User here */}
+        <AddUser />
       </header>
     </div>
   );

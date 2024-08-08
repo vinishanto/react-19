@@ -2,7 +2,7 @@
 
 import "./app.css";
 import { useActionState } from "react";
-import { createUser } from "../actions/user";
+import { createUser } from "../../actions/user";
 
 const initialState = {
   error: undefined,

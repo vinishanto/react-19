@@ -1,11 +1,8 @@
 "use client";
+import { deleteUser } from "@/actions/user";
 import { useTransition } from "react";
-import { deleteUser, getUsers, User } from "../actions/user";
 
-interface Props {
-  user: User;
-}
-function UserDetail({ user }: Props) {
+export function UserDetail({ user }) {
   const [pending, startTransition] = useTransition();
 
   const handleDelete = () => {
@@ -13,6 +10,7 @@ function UserDetail({ user }: Props) {
       deleteUser(user.id);
     });
   };
+
   return (
     <div className="flex items-center gap-4 border border-gray-600 py-1 px-4">
       {pending ? (
@@ -21,8 +19,8 @@ function UserDetail({ user }: Props) {
         <>
           <img
             className="w-10 h-10 rounded-full"
-            src="/profile-picture-5.jpg"
-            alt=""
+            src="https://api.dicebear.com/9.x/personas/svg?seed=Shadow"
+            alt="avatar"
           />
           <div className="font-medium text-base dark:text-white">
             <div>{user.name}</div>
@@ -35,18 +33,6 @@ function UserDetail({ user }: Props) {
           </button>
         </>
       )}
-    </div>
-  );
-}
-
-export default async function UserList() {
-  const users = await getUsers();
-
-  return (
-    <div className="grid grid-cols-3 gap-5">
-      {users.map((user: User) => (
-        <UserDetail user={user} />
-      ))}
     </div>
   );
 }

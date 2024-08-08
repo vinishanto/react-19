@@ -1,5 +1,5 @@
 "use server";
-import prisma from "@/lib/prisma";
+import prisma from '@/lib/prisma/prisma'
 import { revalidatePath } from "next/cache";
 
 // export type for user
